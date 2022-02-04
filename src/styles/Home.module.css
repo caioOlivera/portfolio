@@ -1,0 +1,21 @@
+.mainDiv {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  background-image: linear-gradient(
+    to left bottom,
+    #1d303e,
+    #27414a,
+    #365154,
+    #49625e,
+    #5f7268,
+    #657663,
+    #6f795d,
+    #7e7a57,
+    #856d41,
+    #905c32,
+    #9a472f,
+    #a12b39
+  );
+}
