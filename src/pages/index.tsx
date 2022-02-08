@@ -6,6 +6,9 @@ import Dropdown from "../components/dropdown";
 import Navbar from "../components/navbar";
 import styles from "../styles/Home.module.scss";
 import PictureOfMe from "../../public/images/[removal.ai]_tmp-61fbef991960f.png";
+import site1 from "../../public/images/site1.png";
+import site2 from "../../public/images/site2.png";
+import site3 from "../../public/images/site3.png";
 
 const Home: NextPage = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -65,6 +68,10 @@ const Home: NextPage = () => {
                   As of my personal hobbies, I love reading comics (my favorite
                   character is Dr. Doom from Marvel), watch sports and learn new
                   things every single day.
+                  <br />
+                  <br />
+                  Currently working at Kampana Digital but I am open to new
+                  oportunities and challenges.
                 </p>
               </div>
               <Image
@@ -76,21 +83,36 @@ const Home: NextPage = () => {
             </div>
             <div className={styles.section3}>
               <h3>Projects</h3>
-              <div className={styles.Grid}>
-                <div className={styles.content3}>
-                  <h4>Tutty Motors</h4>
-                  <button type="button">replace</button>
-                  <p>My first professional website using Next, TS and Sass</p>
+              <div className={styles.content3}>
+                <div className={styles.Grid}>
+                  <h4>Tutty Motors Website</h4>
+                  <div className={styles.imageContainer}>
+                    <Image width="900" height="450px" src={site1} alt="site1" />
+                  </div>
+                  <p>
+                    My first professional website using <br /> Next, TS and
+                    Sass.
+                  </p>
                 </div>
-                <div className={styles.content3}>
-                  <h4>Kampana</h4>
-                  <button type="button">replace</button>
-                  <p>My first professional website using Next, TS and Sass</p>
+                <div className={styles.Grid}>
+                  <h4>Zupot Landing Page</h4>
+                  <div className={styles.imageContainer}>
+                    <Image width="900" height="450px" src={site2} alt="site2" />
+                  </div>
+                  <p>
+                    One of countless Landings Pages I have made <br /> at
+                    Kampana.
+                  </p>
                 </div>
-                <div className={styles.content3}>
-                  <h4>ELO Jr.</h4>
-                  <button type="button">replace</button>
-                  <p>My first professional website using Next, TS and Sass</p>
+                <div className={styles.Grid}>
+                  <h4>Tudaço Stores Page</h4>
+                  <div className={styles.imageContainer}>
+                    <Image width="900" height="450px" src={site3} alt="site3" />
+                  </div>
+                  <p>
+                    Code maintenance in an e-commerce using <br />
+                    HTML, CSS and JS.
+                  </p>
                 </div>
               </div>
             </div>

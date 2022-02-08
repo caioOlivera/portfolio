@@ -53,7 +53,7 @@
     margin-top: 0.5rem;
     text-align: center;
     color: #fefefe;
-    font-family: "Inter", sans-serif;
+    font-family: "Lato", sans-serif;
   }
 }
 
@@ -61,7 +61,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 2.8rem;
+  margin-top: 2.5rem;
   h3 {
     font-size: 20px;
     font-family: "Lato", sans-serif;
@@ -73,10 +73,11 @@
   p {
     font-size: 14px;
     color: #fefefe;
+    font-family: "Lato", sans-serif;
   }
 
   .textContent {
-    padding: 2rem;
+    padding: 5rem 2rem 2rem 2rem;
     width: 40%;
   }
 }
@@ -94,11 +95,39 @@
     margin-bottom: 1rem;
     color: #ffffff;
   }
-
-  .Grid {
+  .content3 {
     display: flex;
-    justify-content: space-around;
     flex-direction: row;
-    padding: 1.5rem;
+    align-items: center;
+    .Grid {
+      display: flex;
+      align-items: center;
+      width: 40%;
+      justify-items: center;
+      justify-content: space-around;
+      flex-direction: column;
+      padding: 1.5rem;
+      margin-right: 2.5rem;
+      margin-left: 2.5rem;
+      h4 {
+        font-size: 15px;
+        font-weight: 400;
+        font-family: "Lato", sans-serif;
+        margin-bottom: 1rem;
+        color: #ffffff;
+      }
+      p {
+        font-size: 12px;
+        text-align: center;
+        margin-top: 0.5rem;
+        color: #ffffff;
+        font-weight: 300;
+      }
+
+      .imageContainer {
+        filter: drop-shadow(2px 2px 4px #232b42);
+        border-radius: 2rem;
+      }
+    }
   }
 }
