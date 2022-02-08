@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: "Inter, Arial, sans-serif",
+        sans: "Lato, Arial, sans-serif",
       },
       colors: {
         blue: {

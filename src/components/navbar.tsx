@@ -5,9 +5,15 @@ const Navbar = ({ toggle }: any) => {
   return (
     <div className="flex items-center justify-center w-8/10 h-max text-white font-sans pt-11 ">
       <div className="w-full flex items-center justify-evenly px-44 md:flex hidden mt-50">
-        <Link href="/">About me</Link>
-        <Link href="/">Projects</Link>
-        <Link href="/">Contact</Link>
+        <Link href="/">
+          <a className="font-mono font-bold hover:opacity-75 ">About me</a>
+        </Link>
+        <Link href="/">
+          <a className="font-mono font-bold hover:opacity-75">Projects</a>
+        </Link>
+        <Link href="/">
+          <a className="font-mono font-bold hover:opacity-75 "> Contact</a>
+        </Link>
       </div>
       <div className="px-4 cursor-pointer md:hidden" onClick={toggle}>
         <svg
