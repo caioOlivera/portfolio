@@ -5,17 +5,17 @@ const Navbar = ({ toggle }: any) => {
   return (
     <div className="flex items-center justify-center w-8/10 h-5 text-white font-sans mt-10 ">
       <div className="w-full flex items-center justify-evenly px-44 md:flex hidden mt-50">
-        <Link href="/">
+        <Link href="#about-me">
           <a className="font-mono ease-in hover:transition-all hover:opacity-75 hover:text-lg">
             About me
           </a>
         </Link>
-        <Link href="/">
+        <Link href="#projects">
           <a className="font-mono hover:transition-all hover:opacity-75 hover:text-lg hover:ease-in">
             Projects
           </a>
         </Link>
-        <Link href="/">
+        <Link href="#contact">
           <a className="font-mono hover:transition-all hover:opacity-75 hover:text-lg hover:ease-in">
             Contact
           </a>

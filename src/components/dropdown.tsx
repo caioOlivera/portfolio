@@ -10,13 +10,13 @@ const dropdown = ({ isOpen, toggle }: any) => {
           : "hidden"
       }
     >
-      <Link href="/">
+      <Link href="#about-me">
         <a className=" mt-3">About me</a>
       </Link>
-      <Link href="/">
+      <Link href="#projects">
         <a className=" mt-1">Projects</a>
       </Link>
-      <Link href="/">
+      <Link href="#contact">
         <a className=" mt-1">Contact</a>
       </Link>
     </div>

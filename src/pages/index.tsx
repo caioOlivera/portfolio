@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import type { NextPage } from "next";
+import Link from "next/link";
 import Head from "next/head";
 import Image from "next/image";
 import Dropdown from "../components/dropdown";
@@ -75,7 +76,7 @@ const Home: NextPage = () => {
                 work and get in touch.
               </h2>
             </div>
-            <div className={styles.section2}>
+            <div id="about-me" className={styles.section2}>
               <div className={styles.textContent}>
                 <h3>About me</h3>
                 <p>
@@ -105,13 +106,20 @@ const Home: NextPage = () => {
                 alt="Picture of me"
               />
             </div>
-            <div className={styles.section3}>
+            <div id="projects" className={styles.section3}>
               <h3>Projects</h3>
               <div className={styles.content3}>
                 <div className={styles.Grid}>
                   <h4>Tutty Motors Website</h4>
                   <div className={styles.imageContainer}>
-                    <Image width="900" height="450px" src={site1} alt="site1" />
+                    <Link href="https://tuttymotors.vercel.app/" passHref>
+                      <Image
+                        width="900"
+                        height="450px"
+                        src={site1}
+                        alt="site1"
+                      />
+                    </Link>
                   </div>
                   <p>
                     My first professional website made
@@ -121,7 +129,17 @@ const Home: NextPage = () => {
                 <div className={styles.Grid}>
                   <h4>Zupot Landing Page</h4>
                   <div className={styles.imageContainer}>
-                    <Image width="900" height="450px" src={site2} alt="site2" />
+                    <Link
+                      href="https://lp.zupot.com.br/lp-primeiro-ciclo"
+                      passHref
+                    >
+                      <Image
+                        width="900"
+                        height="450px"
+                        src={site2}
+                        alt="site2"
+                      />
+                    </Link>
                   </div>
                   <p>
                     One of countless Landings Pages I have made <br /> at
@@ -131,12 +149,14 @@ const Home: NextPage = () => {
                 <div className={styles.Grid}>
                   <h4>Tudaço Stores Page</h4>
                   <div className={styles.imageContainer}>
-                    <Image
-                      width="900"
-                      height="450px"
-                      src={picture}
-                      alt="site3"
-                    />
+                    <Link href="https://www.lojastudaco.com.br/lojas" passHref>
+                      <Image
+                        width="900"
+                        height="450px"
+                        src={picture}
+                        alt="site3"
+                      />
+                    </Link>
                   </div>
                   <p>
                     Code maintenance in an e-commerce using <br />
@@ -144,18 +164,60 @@ const Home: NextPage = () => {
                   </p>
                 </div>
               </div>
-              <div className={styles.section4}>
+              <div id="contact" className={styles.section4}>
                 <h3>Contact</h3>
                 <h4>Here you can contact and find me in all my socials.</h4>
                 <div className={styles.iconsContainer}>
-                  <SiLinkedin size="2rem" color="#ffffff" />
-                  <SiGithub size="2rem" color="#ffffff" />
-                  <SiGmail size="2rem" color="#ffffff" />
+                  <Link
+                    href="https://www.linkedin.com/in/caio-oliveira-6889001bb/"
+                    passHref
+                  >
+                    <SiLinkedin
+                      className={styles.icon}
+                      size="2rem"
+                      color="#ffffff"
+                    />
+                  </Link>
+                  <Link href="https://github.com/caioOlivera" passHref>
+                    <SiGithub
+                      className={styles.icon}
+                      size="2rem"
+                      color="#ffffff"
+                    />
+                  </Link>
+                  <Link href="mailto:caio.goncalves.pro@gmail.com" passHref>
+                    <SiGmail
+                      className={styles.icon}
+                      size="2rem"
+                      color="#ffffff"
+                    />
+                  </Link>
                 </div>
                 <div className={styles.iconsContainer}>
-                  <SiInstagram size="2rem" color="#ffffff" />
-                  <SiVsco size="2rem" color="#ffffff" />
-                  <SiDribbble size="2rem" color="#ffffff" />
+                  <Link
+                    href="https://www.instagram.com/caio_goncalves_/"
+                    passHref
+                  >
+                    <SiInstagram
+                      className={styles.icon}
+                      size="2rem"
+                      color="#ffffff"
+                    />
+                  </Link>
+                  <Link href="https://vsco.co/caio-lunar/gallery" passHref>
+                    <SiVsco
+                      className={styles.icon}
+                      size="2rem"
+                      color="#ffffff"
+                    />
+                  </Link>
+                  <Link href="https://dribbble.com/caiolunar" passHref>
+                    <SiDribbble
+                      className={styles.icon}
+                      size="2rem"
+                      color="#ffffff"
+                    />
+                  </Link>
                 </div>
               </div>
             </div>
