@@ -6,14 +6,19 @@ const dropdown = ({ isOpen, toggle }: any) => {
     <div
       className={
         isOpen
-          ? "grid grid-rows-3 text-center text-white items-center"
+          ? "flex flex-col items-center justify-center text-center text-white self-center"
           : "hidden"
       }
-      onClick={toggle}
     >
-      <Link href="/">About me</Link>
-      <Link href="/">Projects</Link>
-      <Link href="/">Contact</Link>
+      <Link href="/">
+        <a className=" mt-3">About me</a>
+      </Link>
+      <Link href="/">
+        <a className=" mt-1">Projects</a>
+      </Link>
+      <Link href="/">
+        <a className=" mt-1">Contact</a>
+      </Link>
     </div>
   );
 };
