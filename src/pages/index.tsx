@@ -12,6 +12,7 @@ import site2 from "../../public/images/site2.png";
 import site3 from "../../public/images/site3.png";
 import picture from "../../public/images/site4.png";
 import emoji from "../../public/images/waving-hand-sign_1f44b.png";
+import previewPicture from "../../public/images/android-chrome-512x512.png";
 
 import {
   SiInstagram,
@@ -49,6 +50,15 @@ const Home: NextPage = () => {
         <meta
           name="Oliveira Dev Portfolio"
           content="This is Caio Oliveira personal website and portfolio."
+        />
+        <meta
+          property="og:description"
+          content="This is Caio Oliveira personal website and portfolio."
+        />
+        <meta property="og:type" content="Website" />
+        <meta
+          property="og:image"
+          content="https://pbs.twimg.com/profile_images/1495634558368243712/1vlY4XAX_400x400.jpg"
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
