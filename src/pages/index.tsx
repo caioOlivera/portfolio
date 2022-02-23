@@ -51,6 +51,17 @@ const Home: NextPage = () => {
           name="Oliveira Dev Portfolio"
           content="This is Caio Oliveira personal website and portfolio."
         />
+
+        <meta
+          name="description"
+          content="This is Caio Oliveira personal website and portfolio."
+        />
+        <meta
+          name="keywords"
+          content="Caio Oliveira, Portfolio, Dev, Personal Website"
+        />
+        <meta name="author" content="Caio Oliveira" />
+        <meta property="og:title" content="Oliveira Dev Portfolio" />
         <meta
           property="og:description"
           content="This is Caio Oliveira personal website and portfolio."
