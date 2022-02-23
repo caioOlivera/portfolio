@@ -64,8 +64,8 @@ const Home: NextPage = () => {
                   <span>Hello there</span>
                 </h1>
                 <Image
-                  height="79%"
-                  width="79%"
+                  height="99%"
+                  width="99%"
                   src={emoji}
                   alt="hand waiving emoji"
                 />
@@ -99,12 +99,14 @@ const Home: NextPage = () => {
                   Marvel), watch sports and learn new things every single day.
                 </p>
               </div>
-              <Image
-                width="280"
-                height="400"
-                src={PictureOfMe}
-                alt="Picture of me"
-              />
+              <div className={styles.imgCC}>
+                <Image
+                  width="410"
+                  height="600"
+                  src={PictureOfMe}
+                  alt="Picture of me"
+                />
+              </div>
             </div>
             <div id="projects" className={styles.section3}>
               <h3>Projects</h3>
@@ -174,21 +176,21 @@ const Home: NextPage = () => {
                   >
                     <SiLinkedin
                       className={styles.icon}
-                      size="2rem"
+                      size="3rem"
                       color="#ffffff"
                     />
                   </Link>
                   <Link href="https://github.com/caioOlivera" passHref>
                     <SiGithub
                       className={styles.icon}
-                      size="2rem"
+                      size="3rem"
                       color="#ffffff"
                     />
                   </Link>
                   <Link href="mailto:caio.goncalves.pro@gmail.com" passHref>
                     <SiGmail
                       className={styles.icon}
-                      size="2rem"
+                      size="3rem"
                       color="#ffffff"
                     />
                   </Link>
@@ -200,21 +202,21 @@ const Home: NextPage = () => {
                   >
                     <SiInstagram
                       className={styles.icon}
-                      size="2rem"
+                      size="3rem"
                       color="#ffffff"
                     />
                   </Link>
                   <Link href="https://vsco.co/caio-lunar/gallery" passHref>
                     <SiVsco
                       className={styles.icon}
-                      size="2rem"
+                      size="3rem"
                       color="#ffffff"
                     />
                   </Link>
                   <Link href="https://dribbble.com/caiolunar" passHref>
                     <SiDribbble
                       className={styles.icon}
-                      size="2rem"
+                      size="3rem"
                       color="#ffffff"
                     />
                   </Link>
