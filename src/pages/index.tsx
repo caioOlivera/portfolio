@@ -114,10 +114,13 @@ const Home: NextPage = () => {
                   Engineering degree student at Universidade Federal de Goiás
                   (Goiania, GO - Brazil). I have been learning and working with
                   front-end development for the last 2 years now and I also want
-                  to become a Full Stack devolper in the future. My current
-                  favorite development stack is NextJS as React framework -
-                  TypeScript - Sass or Tailwind. I am learning GraphQL to fetch
-                  data and Jest/Cypress/React-testing-library for testing.
+                  to become a Full Stack devolper in the future.
+                  <br />
+                  <br />
+                  My current favorite development stack is: HTML5. CSS3. NextJS
+                  as React framework. TypeScript. Sass as CSS Preprocessor.
+                  Tailwind as CSS Framework. Learning GraphQL for fetching data.
+                  Learning Jest and Cypress for testing.
                   <br />
                   <br />
                   Currently working at Kampana Digital but I am open to new
