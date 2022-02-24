@@ -3,6 +3,7 @@
 .body {
   height: 100%;
   width: 100%;
+  scroll-behavior: smooth;
   background-image: linear-gradient(
     to left bottom,
     #1d303e,
@@ -19,6 +20,7 @@
   align-content: center;
   justify-content: center;
   justify-items: center;
+  overflow-x: hidden;
 }
 
 .section1 {
@@ -66,7 +68,7 @@
   margin-top: 13.5rem;
   scroll-behavior: smooth;
   h3 {
-    font-size: 30px;
+    font-size: 28px;
     font-family: "Lato", sans-serif;
     font-weight: bold;
     margin-bottom: 1rem;
@@ -74,7 +76,7 @@
   }
 
   p {
-    font-size: 22px;
+    font-size: 20px;
     //14
     color: #fefefe;
     font-family: "Lato", sans-serif;
@@ -109,12 +111,19 @@
       display: flex;
       align-items: center;
       width: 40%;
+      height: 40%;
       justify-items: center;
-      justify-content: space-around;
+      justify-content: flex-start;
       flex-direction: column;
       padding: 1.5rem;
       margin-right: 2.5rem;
       margin-left: 2.5rem;
+      border-radius: 0.5rem;
+      background: linear-gradient(
+        to right bottom,
+        rgba(193, 193, 193, 0.6),
+        rgba(245, 245, 239, 0.2)
+      );
       h4 {
         font-size: 24px;
         font-weight: 400;
@@ -123,8 +132,7 @@
         color: #ffffff;
       }
       p {
-        font-size: 22px;
-        text-align: center;
+        font-size: 18px;
         margin-top: 0.5rem;
         color: #ffffff;
         font-weight: 300;
@@ -136,6 +144,16 @@
         cursor: pointer;
       }
     }
+  }
+}
+
+.section3 {
+  .Grid:hover {
+    background: linear-gradient(
+      to right bottom,
+      rgba(153, 153, 173, 0.5),
+      rgba(205, 205, 209, 0.1)
+    );
   }
 }
 
@@ -182,7 +200,7 @@
   justify-items: center;
   align-self: center;
   p {
-    font-size: 22px;
+    font-size: 16px;
     font-family: "Lato", sans-serif;
     font-weight: 300;
     margin-bottom: 1rem;
@@ -234,8 +252,10 @@
       flex-direction: column;
       .Grid {
         width: 90%;
+        margin-top: 3rem;
         h4 {
           font-size: 20px;
+          text-align: center;
         }
         p {
           font-size: 13px;
@@ -245,7 +265,7 @@
   }
 
   .section4 {
-    margin-top: 6rem;
+    margin-top: 4.5rem;
     h3 {
       font-size: 24px;
     }
@@ -296,6 +316,10 @@
       flex-direction: column;
       .Grid {
         width: 80%;
+        margin-top: 2rem;
+        h3 {
+          text-align: center;
+        }
       }
     }
   }
