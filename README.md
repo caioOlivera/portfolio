@@ -1,34 +1,52 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Caio Oliveira — Portfólio
 
-## Getting Started
+Rebrand completo do site pessoal, construído em Next.js 14 (App Router) + TypeScript + Tailwind + React Three Fiber.
 
-First, run the development server:
+## Rodando localmente
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abra http://localhost:3000. O primeiro build baixa as fontes (Fraunces, Inter, IBM Plex Mono) do Google Fonts — é necessário ter acesso à internet nesse momento.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Build de produção
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+```bash
+npm run build
+npm run start
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Deploy
 
-## Learn More
+Este projeto está pronto para deploy na Vercel (recomendado, zero-config) ou qualquer plataforma que suporte Next.js 14. Basta importar o repositório e definir o domínio.
 
-To learn more about Next.js, take a look at the following resources:
+## Antes de publicar
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [ ] Trocar `https://caiooliveira.dev` pelo domínio final em `src/app/layout.tsx`, `src/app/sitemap.ts` e `src/app/robots.ts`.
+- [ ] Conferir se o e-mail e os links de LinkedIn/GitHub em `src/lib/data.ts` estão corretos.
+- [ ] Gerar uma imagem Open Graph dedicada (1200×630) em vez do badge do GCP, se desejar algo mais personalizado.
+- [ ] Revisar o texto do evento Seja Wild e das descrições de projeto em `src/lib/data.ts` — foram escritas com base no currículo e no post do LinkedIn, mas vale o seu ajuste fino.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Estrutura
 
-## Deploy on Vercel
+```
+src/
+  app/            → layout, página principal, metadata, sitemap/robots
+  components/      → Navbar, Hero, About, Experience, Skills, Projects, Community, Contact, Footer
+  components/MoonScene.tsx   → cena 3D da Lua (hero), luz sincronizada com o scroll
+  components/ArcherScene.tsx → estátua 3D da arqueira élfica (seção Comunidade)
+  lib/data.ts      → todo o conteúdo textual do site (experiência, projetos, skills, etc.)
+public/
+  models/          → moon.glb e elven-archer.glb, já comprimidos com Draco (~770 KB e ~420 KB)
+  images/          → fotos, logos e badge de certificação
+  docs/            → currículo em PDF, disponível para download no site
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Notas técnicas
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- **Performance**: as cenas 3D só montam quando entram na viewport (`components/InView.tsx`), e são carregadas via `next/dynamic` com `ssr: false` para não pesar no bundle inicial. Os modelos `.glb` já passaram por compressão Draco (redução de ~85-90% no tamanho original).
+- **SEO**: metadata completa (Open Graph, Twitter Card, JSON-LD de pessoa) em `layout.tsx`, além de `sitemap.ts` e `robots.ts` dinâmicos.
+- **Acessibilidade**: foco visível customizado, `prefers-reduced-motion` respeitado, textos alternativos em todas as imagens.
+- **Paleta**: tons de "noite" (`void`), luar (`moon`) e um dourado de conquista (`gold`), definidos em `tailwind.config.ts`.

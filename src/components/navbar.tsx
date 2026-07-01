@@ -1,44 +1,77 @@
-import React from "react";
-import Link from "next/link";
+"use client";
 
-const Navbar = ({ toggle }: any) => {
+import { useEffect, useState } from "react";
+
+const links = [
+  { href: "#sobre", label: "Sobre" },
+  { href: "#experiencia", label: "Experiência" },
+  { href: "#projetos", label: "Projetos" },
+  { href: "#comunidade", label: "Comunidade" },
+  { href: "#contato", label: "Contato" },
+];
+
+export default function Navbar() {
+  const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <div className="flex items-center justify-center w-8/10 h-5 text-white font-sans mt-14 ">
-      <div className="w-full text-2xl flex items-center justify-evenly px-44 md:flex hidden mt-50">
-        <Link href="#about-me">
-          <a className="font-mono ease-in hover:transition-all hover:opacity-75 hover:text-3xl">
-            About me
-          </a>
-        </Link>
-        <Link href="#projects">
-          <a className="font-mono hover:transition-all hover:opacity-75 hover:text-3xl hover:ease-in">
-            Projects
-          </a>
-        </Link>
-        <Link href="#contact">
-          <a className="font-mono hover:transition-all hover:opacity-75 hover:text-3xl hover:ease-in">
-            Contact
-          </a>
-        </Link>
-      </div>
-      <div className="px-4 cursor-pointer md:hidden" onClick={toggle}>
-        <svg
-          className="w-6 h-6"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M4 6h16M4 12h16M4 18h16"
-          />
-        </svg>
-      </div>
-    </div>
-  );
-};
+    <header
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
+        scrolled ? "bg-void/80 backdrop-blur-md border-b border-void-line" : "bg-transparent"
+      }`}
+    >
+      <nav className="section-pad mx-auto flex max-w-6xl items-center justify-between py-5">
+        <a href="#topo" className="font-display text-lg italic text-ink">
+          C. Oliveira <span className="text-moon">☾</span>
+        </a>
 
-export default Navbar;
+        <ul className="hidden items-center gap-8 md:flex">
+          {links.map((link) => (
+            <li key={link.href}>
+              <a
+                href={link.href}
+                className="eyebrow !tracking-[0.18em] !text-ink-dim transition-colors hover:!text-moon"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        <button
+          onClick={() => setOpen((v) => !v)}
+          aria-label="Abrir menu"
+          aria-expanded={open}
+          className="flex flex-col gap-1.5 md:hidden"
+        >
+          <span className={`h-px w-6 bg-ink transition-transform ${open ? "translate-y-2 rotate-45" : ""}`} />
+          <span className={`h-px w-6 bg-ink transition-opacity ${open ? "opacity-0" : ""}`} />
+          <span className={`h-px w-6 bg-ink transition-transform ${open ? "-translate-y-2 -rotate-45" : ""}`} />
+        </button>
+      </nav>
+
+      {open && (
+        <ul className="flex flex-col gap-1 border-t border-void-line bg-void/95 px-6 pb-6 pt-2 md:hidden">
+          {links.map((link) => (
+            <li key={link.href}>
+              <a
+                href={link.href}
+                onClick={() => setOpen(false)}
+                className="block py-3 font-mono text-sm uppercase tracking-[0.18em] text-ink-dim"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      )}
+    </header>
+  );
+}
