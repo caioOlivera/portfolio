@@ -24,7 +24,7 @@ export default function Hero() {
 
   return (
     <section id="top" className="relative flex min-h-[100svh] items-center overflow-hidden">
-      <div className="pointer-events-auto absolute right-[-14%] top-1/2 h-[480px] w-[480px] -translate-y-1/2 sm:h-[640px] sm:w-[640px] lg:right-[-2%] lg:h-[760px] lg:w-[760px]">
+      <div className="pointer-events-auto absolute right-[-8%] top-1/2 h-[480px] w-[480px] -translate-y-1/2 sm:right-[-4%] sm:h-[640px] sm:w-[640px] lg:right-[7%] lg:h-[760px] lg:w-[760px]">
         <MoonScene scrollProgress={scrollProgress} />
       </div>
 
