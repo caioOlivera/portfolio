@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
-import { Fraunces, Inter, IBM_Plex_Mono } from "next/font/google";
+import { Space_Grotesk, Inter, IBM_Plex_Mono } from "next/font/google";
+import SmoothScroll from "@/components/SmoothScroll";
+import Cursor from "@/components/Cursor";
 import "./globals.css";
 
-const fraunces = Fraunces({
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
-  variable: "--font-fraunces",
-  weight: ["400", "500", "600"],
-  style: ["normal", "italic"],
+  variable: "--font-display",
+  weight: ["500", "600", "700"],
   display: "swap",
 });
 
@@ -29,41 +30,38 @@ const siteUrl = "https://caiooliveira.dev";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Caio Oliveira Gonçalves — Engenheiro de Dados",
+    default: "Caio Oliveira — Data Engineer",
     template: "%s — Caio Oliveira",
   },
   description:
-    "Portfólio de Caio Oliveira Gonçalves, Engenheiro de Dados especializado em pipelines batch e streaming, arquitetura de dados na nuvem (GCP) e soluções de IA generativa para fintechs e governo.",
+    "Portfolio of Caio Oliveira, a Data Engineer specialized in batch and streaming pipelines, cloud data architecture (GCP) and generative AI solutions for fintech and government.",
   keywords: [
     "Caio Oliveira",
-    "Engenheiro de Dados",
     "Data Engineer",
     "GCP",
     "BigQuery",
     "Vertex AI",
     "PySpark",
     "Apache Airflow",
-    "Governo de Goiás",
+    "Goiás Government",
     "Minsait",
-    "Portfólio",
+    "Portfolio",
   ],
   authors: [{ name: "Caio Oliveira Gonçalves" }],
   creator: "Caio Oliveira Gonçalves",
   openGraph: {
     type: "website",
-    locale: "pt_BR",
+    locale: "en_US",
     url: siteUrl,
-    title: "Caio Oliveira Gonçalves — Engenheiro de Dados",
-    description:
-      "Pipelines de dados batch e streaming, arquitetura na nuvem e IA generativa aplicada a fintechs e governo.",
+    title: "Caio Oliveira — Data Engineer",
+    description: "Batch and streaming data pipelines, cloud architecture and generative AI applied to fintech and government.",
     siteName: "Caio Oliveira",
     images: [{ url: "/images/gcp-data-engineer-badge.png", width: 1040, height: 1040 }],
   },
   twitter: {
     card: "summary",
-    title: "Caio Oliveira Gonçalves — Engenheiro de Dados",
-    description:
-      "Pipelines de dados batch e streaming, arquitetura na nuvem e IA generativa aplicada a fintechs e governo.",
+    title: "Caio Oliveira — Data Engineer",
+    description: "Batch and streaming data pipelines, cloud architecture and generative AI applied to fintech and government.",
   },
   icons: {
     icon: "/favicon.ico",
@@ -76,7 +74,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     "@context": "https://schema.org",
     "@type": "Person",
     name: "Caio Oliveira Gonçalves",
-    jobTitle: "Engenheiro de Dados",
+    jobTitle: "Data Engineer",
     url: siteUrl,
     email: "mailto:caio11goncalves@hotmail.com",
     address: {
@@ -96,9 +94,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   };
 
   return (
-    <html lang="pt-BR" className={`${fraunces.variable} ${inter.variable} ${plexMono.variable}`}>
+    <html lang="en" className={`${spaceGrotesk.variable} ${inter.variable} ${plexMono.variable}`}>
       <body className="grain">
-        {children}
+        <SmoothScroll>{children}</SmoothScroll>
+        <Cursor />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

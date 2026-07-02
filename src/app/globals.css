@@ -28,6 +28,14 @@
     outline: 2px solid #c9d6ff;
     outline-offset: 3px;
   }
+
+  @media (pointer: fine) {
+    body,
+    a,
+    button {
+      cursor: none;
+    }
+  }
 }
 
 @layer utilities {

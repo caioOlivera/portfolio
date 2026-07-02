@@ -2,33 +2,31 @@
 
 import { Suspense, useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { useGLTF, Environment } from "@react-three/drei";
+import { useGLTF, OrbitControls } from "@react-three/drei";
 import * as THREE from "three";
+import { useAutoFit } from "@/lib/useAutoFit";
 
 function MoonModel({ scrollProgress }: { scrollProgress: React.MutableRefObject<number> }) {
   const { scene } = useGLTF("/models/moon.glb");
-  const moonRef = useRef<THREE.Group>(null);
+  const wrapRef = useRef<THREE.Group>(null);
   const lightRef = useRef<THREE.DirectionalLight>(null);
 
-  useFrame((_, delta) => {
-    if (moonRef.current) {
-      moonRef.current.rotation.y += delta * 0.06;
-    }
+  useAutoFit(wrapRef, scene, 2.6);
+
+  useFrame(() => {
     if (lightRef.current) {
-      // Scroll drives the terminator: light sweeps around the moon like a phase cycle
-      const angle = Math.PI * 0.15 + scrollProgress.current * Math.PI * 1.4;
+      // Scroll sweeps the light around the sphere like a moon-phase terminator
+      const angle = Math.PI * 0.15 + scrollProgress.current * Math.PI * 1.6;
       lightRef.current.position.x = Math.cos(angle) * 5;
       lightRef.current.position.z = Math.sin(angle) * 5;
     }
   });
 
   return (
-    <>
-      <directionalLight ref={lightRef} position={[3, 1, 4]} intensity={2.4} color="#eef2ff" />
-      <group ref={moonRef} scale={1.6}>
-        <primitive object={scene} />
-      </group>
-    </>
+    <group ref={wrapRef}>
+      <directionalLight ref={lightRef} position={[3, 1, 4]} intensity={2.6} color="#eef2ff" />
+      <primitive object={scene} />
+    </group>
   );
 }
 
@@ -37,13 +35,22 @@ export default function MoonScene({ scrollProgress }: { scrollProgress: React.Mu
     <Canvas
       dpr={[1, 1.6]}
       gl={{ antialias: true, alpha: true }}
-      camera={{ position: [0, 0, 5.2], fov: 38 }}
+      camera={{ position: [0, 0, 6], fov: 36 }}
     >
-      <ambientLight intensity={0.35} color="#7c88ad" />
+      <ambientLight intensity={0.32} color="#7c88ad" />
+      <pointLight position={[-4, -2, -3]} intensity={12} color="#e8b95b" />
       <Suspense fallback={null}>
         <MoonModel scrollProgress={scrollProgress} />
-        <Environment preset="night" />
       </Suspense>
+      <OrbitControls
+        enableZoom={false}
+        enablePan={false}
+        autoRotate
+        autoRotateSpeed={0.6}
+        rotateSpeed={0.5}
+        minPolarAngle={Math.PI / 2.6}
+        maxPolarAngle={Math.PI / 1.6}
+      />
     </Canvas>
   );
 }

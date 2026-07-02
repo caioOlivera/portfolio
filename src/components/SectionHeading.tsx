@@ -1,3 +1,5 @@
+import Reveal from "./Reveal";
+
 export default function SectionHeading({
   eyebrow,
   title,
@@ -8,10 +10,10 @@ export default function SectionHeading({
   description?: string;
 }) {
   return (
-    <div className="mb-14 max-w-2xl">
+    <Reveal className="mb-14 max-w-2xl">
       <p className="eyebrow mb-4">{eyebrow}</p>
-      <h2 className="font-display text-3xl italic text-ink sm:text-4xl">{title}</h2>
+      <h2 className="font-display text-4xl font-semibold tracking-tight text-ink sm:text-5xl">{title}</h2>
       {description && <p className="mt-4 text-balance leading-relaxed text-ink-dim">{description}</p>}
-    </div>
+    </Reveal>
   );
 }
